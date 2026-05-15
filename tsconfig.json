@@ -53,7 +53,8 @@
     "packages/*/src",
     "packages/*/test",
     "harnesses/*/src",
-    "harnesses/*/test"
+    "harnesses/*/test",
+    "opencode"
   ],
   "exclude": ["node_modules"]
 }

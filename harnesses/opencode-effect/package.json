@@ -1,0 +1,45 @@
+{
+  "$schema": "https://www.schemastore.org/package.json",
+  "name": "opencode-effect-harness",
+  "version": "0.1.0",
+  "description": "an OpenCode plugin for writing Effect v4 code, sibling to pi-effect-harness",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "effect",
+    "effect-ts"
+  ],
+  "homepage": "https://github.com/typedrat/pi-effect-harness#readme",
+  "bugs": {
+    "url": "https://github.com/typedrat/pi-effect-harness/issues"
+  },
+  "license": "MIT",
+  "author": "Marc Suesser; OpenCode adapter by typedrat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/typedrat/pi-effect-harness.git"
+  },
+  "type": "module",
+  "files": [
+    "dist",
+    "skills",
+    "patterns",
+    "guidance",
+    "commands",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/plugin.js",
+  "exports": {
+    ".": "./dist/plugin.js"
+  },
+  "dependencies": {
+    "@effect/platform-node": "catalog:",
+    "effect": "catalog:",
+    "pi-harness-kit": "workspace:*",
+    "pi-effect-harness": "workspace:*"
+  },
+  "peerDependencies": {
+    "@opencode-ai/plugin": "^1.15.0"
+  }
+}
