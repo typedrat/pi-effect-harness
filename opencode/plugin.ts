@@ -88,6 +88,20 @@ const effectHarnessPlugin: Plugin = async (
 			if (!cfg.skills.paths.includes(skillsDir)) {
 				cfg.skills.paths.push(skillsDir);
 			}
+
+			// Register the toggle command directly in config.command rather than
+			// relying on filesystem discovery of /commands/*.md (OpenCode only
+			// scans .opencode/command(s)/ in the project tree, not arbitrary
+			// plugin install dirs). The template body is a no-op — the plugin's
+			// command.execute.before hook intercepts and throws before any LLM
+			// call happens.
+			cfg.command ??= {};
+			cfg.command[TOGGLE_COMMAND_NAME] ??= {
+				template:
+					'(no-op; opencode-effect-harness plugin handles this command via command.execute.before)',
+				description:
+					'Toggle the opencode-effect-harness Effect v4 mode (skill gating, policy header, pattern feedback)'
+			};
 		},
 
 		'experimental.chat.system.transform': async (input, output) => {
