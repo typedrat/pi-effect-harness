@@ -33,6 +33,8 @@
     "@effect/tsgo": "^0.4.0",
     "@effect/vitest": "catalog:",
     "@mariozechner/pi-coding-agent": "^0.67.1",
+    "@opencode-ai/plugin": "1.15.0",
+    "@opencode-ai/sdk": "1.15.0",
     "@types/bun": "^1.3.12",
     "@typescript/native-preview": "^7.0.0-dev.20260415.1",
     "dprint": "^0.49.0",
@@ -42,12 +44,12 @@
   },
   "catalog": {
     "@ast-grep/napi": "^0.40.5",
-    "@effect/platform-node": "4.0.0-beta.59",
-    "@effect/vitest": "4.0.0-beta.59",
-    "effect": "4.0.0-beta.59"
+    "@effect/platform-node": "4.0.0-beta.65",
+    "@effect/vitest": "4.0.0-beta.65",
+    "effect": "4.0.0-beta.65"
   },
   "overrides": {
-    "effect": "4.0.0-beta.59"
+    "effect": "4.0.0-beta.65"
   },
   "packageManager": "bun@1.3.12"
 }
