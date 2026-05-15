@@ -1,8 +1,8 @@
 import { Effect, Option, Predicate } from 'effect';
 
 import type { HarnessHook } from 'pi-harness-kit/kernel/HarnessHook.ts';
-import type { PendingSkillReads } from '../services/PendingSkillReads.ts';
-import type { SkillCatalog } from '../services/SkillCatalog.ts';
+import type { PendingSkillReads } from '../../services/PendingSkillReads.ts';
+import type { SkillCatalog } from '../../services/SkillCatalog.ts';
 
 const noDecisions = [] as const;
 

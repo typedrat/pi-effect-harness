@@ -4,8 +4,8 @@ import type {
 } from '@mariozechner/pi-coding-agent';
 import { Predicate } from 'effect';
 
-import { EditReplacement } from '../../EditReplacement.ts';
-import { WriteIntent } from '../../WriteIntent.ts';
+import { EditReplacement } from '../../../EditReplacement.ts';
+import { WriteIntent } from '../../../WriteIntent.ts';
 
 const recordFromUnknown = (
 	value: unknown

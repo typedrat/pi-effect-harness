@@ -1,7 +1,7 @@
 import { Effect } from 'effect';
 
 import type { HarnessHook } from 'pi-harness-kit/kernel/HarnessHook.ts';
-import type { SkillCatalog } from '../services/SkillCatalog.ts';
+import type { SkillCatalog } from '../../services/SkillCatalog.ts';
 
 const noDecisions = [] as const;
 

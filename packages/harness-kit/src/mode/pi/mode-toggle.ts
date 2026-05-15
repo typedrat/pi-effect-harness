@@ -4,7 +4,7 @@ import type {
 	ExtensionContext
 } from '@mariozechner/pi-coding-agent';
 
-import { MODE_REGISTER_EVENT, MODE_UNREGISTER_EVENT } from './constants.ts';
+import { MODE_REGISTER_EVENT, MODE_UNREGISTER_EVENT } from '../../constants.ts';
 
 export interface ModeRegistration {
 	readonly id: string;

@@ -26,7 +26,7 @@ export namespace GitBranch {
 	}
 
 	export class Service extends Context.Service<Service, Interface>()(
-		'pi-harness-kit/mode/GitBranch'
+		'pi-harness-kit/mode/pi/GitBranch'
 	) {}
 
 	export const layer = Layer.effect(

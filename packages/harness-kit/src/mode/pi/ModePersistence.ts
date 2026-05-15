@@ -79,7 +79,7 @@ export namespace ModePersistence {
 	}
 
 	export class Service extends Context.Service<Service, Interface>()(
-		'pi-harness-kit/mode/ModePersistence'
+		'pi-harness-kit/mode/pi/ModePersistence'
 	) {}
 
 	export const layer = Layer.effect(

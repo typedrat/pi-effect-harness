@@ -9,19 +9,19 @@ import type { ExtensionAPI } from '@mariozechner/pi-coding-agent';
 import { Effect, ManagedRuntime, Schema } from 'effect';
 
 import { Decision } from 'pi-harness-kit/Decision.ts';
-import { activeBranchFromContext } from 'pi-harness-kit/kernel/adapters/BeforeAgentStartSnapshot.ts';
+import { activeBranchFromContext } from 'pi-harness-kit/kernel/adapters/pi/BeforeAgentStartSnapshot.ts';
 import {
 	executeSideEffects,
 	toToolCallResult
-} from 'pi-harness-kit/kernel/adapters/DecisionExecutor.ts';
+} from 'pi-harness-kit/kernel/adapters/pi/DecisionExecutor.ts';
 import {
 	writeIntentFromToolCall,
 	writeIntentFromToolResult
-} from 'pi-harness-kit/kernel/adapters/ToolEventSnapshot.ts';
+} from 'pi-harness-kit/kernel/adapters/pi/ToolEventSnapshot.ts';
 import { HarnessController } from 'pi-harness-kit/kernel/services/HarnessController.ts';
-import { createModeToggle } from 'pi-harness-kit/mode-toggle.ts';
-import { ModePersistence } from 'pi-harness-kit/mode/ModePersistence.ts';
 import { ModeState } from 'pi-harness-kit/mode/ModeState.ts';
+import { createModeToggle } from 'pi-harness-kit/mode/pi/mode-toggle.ts';
+import { ModePersistence } from 'pi-harness-kit/mode/pi/ModePersistence.ts';
 
 import { EFFECT_STATUS } from './constants.ts';
 import { EffectHarnessLayer } from './layers/EffectHarnessLayer.ts';

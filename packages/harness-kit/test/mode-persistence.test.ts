@@ -1,8 +1,8 @@
 import { describe, expect, it } from '@effect/vitest';
 import { Effect, FileSystem, Layer, Path } from 'effect';
 
-import { GitBranch } from '../src/mode/GitBranch.ts';
-import { ModePersistence } from '../src/mode/ModePersistence.ts';
+import { GitBranch } from '../src/mode/pi/GitBranch.ts';
+import { ModePersistence } from '../src/mode/pi/ModePersistence.ts';
 
 const fileSystemLayer = Layer.effect(
 	FileSystem.FileSystem,

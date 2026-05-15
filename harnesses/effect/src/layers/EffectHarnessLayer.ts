@@ -12,15 +12,15 @@ import { PatternMatcher } from 'pi-harness-kit/kernel/services/PatternMatcher.ts
 import { RuleEngine } from 'pi-harness-kit/kernel/services/RuleEngine.ts';
 import { RuleSet } from 'pi-harness-kit/kernel/services/RuleSet.ts';
 import { WriteProjection } from 'pi-harness-kit/kernel/services/WriteProjection.ts';
-import { GitBranch } from 'pi-harness-kit/mode/GitBranch.ts';
-import { ModePersistence } from 'pi-harness-kit/mode/ModePersistence.ts';
 import { ModeState } from 'pi-harness-kit/mode/ModeState.ts';
+import { GitBranch } from 'pi-harness-kit/mode/pi/GitBranch.ts';
+import { ModePersistence } from 'pi-harness-kit/mode/pi/ModePersistence.ts';
 
 import { clearPendingSkillReadsHooks } from '../hooks/ClearPendingSkillReads.ts';
-import { emitSkillLoadedEntryHook } from '../hooks/EmitSkillLoadedEntry.ts';
 import { ensureReferenceCloneHooks } from '../hooks/EnsureReferenceClone.ts';
-import { rebuildSkillCatalogHooks } from '../hooks/RebuildSkillCatalog.ts';
-import { trackSkillReadHook } from '../hooks/TrackSkillRead.ts';
+import { emitSkillLoadedEntryHook } from '../hooks/pi/EmitSkillLoadedEntry.ts';
+import { rebuildSkillCatalogHooks } from '../hooks/pi/RebuildSkillCatalog.ts';
+import { trackSkillReadHook } from '../hooks/pi/TrackSkillRead.ts';
 import { injectEffectPolicyHeaderRule } from '../rules/InjectEffectPolicyHeader.ts';
 import { requireLoadedSkillsForEffectWritesRule } from '../rules/RequireLoadedSkillsForEffectWrites.ts';
 import { sendPatternFeedbackAfterWriteRule } from '../rules/SendPatternFeedbackAfterWrite.ts';

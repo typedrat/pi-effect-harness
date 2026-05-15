@@ -4,7 +4,7 @@ import type {
 } from '@mariozechner/pi-coding-agent';
 import { Schema } from 'effect';
 
-import { Decision } from '../../Decision.ts';
+import { Decision } from '../../../Decision.ts';
 
 type DecisionValue = Schema.Schema.Type<typeof Decision.Value>;
 

@@ -1,7 +1,7 @@
 import type { ExtensionContext } from '@mariozechner/pi-coding-agent';
 import { Predicate } from 'effect';
 
-import { ActiveBranch } from '../../ActiveBranch.ts';
+import { ActiveBranch } from '../../../ActiveBranch.ts';
 
 type SessionEntry = ReturnType<
 	ExtensionContext['sessionManager']['getBranch']

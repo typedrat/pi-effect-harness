@@ -2,10 +2,10 @@ import { Effect, Predicate } from 'effect';
 
 import { Decision } from 'pi-harness-kit/Decision.ts';
 import type { HarnessHook } from 'pi-harness-kit/kernel/HarnessHook.ts';
-import { activeBranchLoadedEffectSkills } from '../atoms/active-branch/activeBranchLoadedEffectSkills.ts';
-import { SKILL_LOADED_ENTRY } from '../constants.ts';
-import type { PendingSkillReads } from '../services/PendingSkillReads.ts';
-import type { SkillCatalog } from '../services/SkillCatalog.ts';
+import { activeBranchLoadedEffectSkills } from '../../atoms/active-branch/activeBranchLoadedEffectSkills.ts';
+import { SKILL_LOADED_ENTRY } from '../../constants.ts';
+import type { PendingSkillReads } from '../../services/PendingSkillReads.ts';
+import type { SkillCatalog } from '../../services/SkillCatalog.ts';
 
 const noDecisions = [] as const;
 
