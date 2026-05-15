@@ -7,6 +7,8 @@
  */
 import type { ExtensionAPI } from '@mariozechner/pi-coding-agent';
 import { Effect, ManagedRuntime, Schema } from 'effect';
+import { resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import { Decision } from 'pi-harness-kit/Decision.ts';
 import { activeBranchFromContext } from 'pi-harness-kit/kernel/adapters/pi/BeforeAgentStartSnapshot.ts';
@@ -66,8 +68,14 @@ const modePersistenceLocation = (
 	sessionId: ctx.sessionId
 });
 
+const harnessRoot = resolve(fileURLToPath(import.meta.url), '..', '..');
+const patternsDir = resolve(harnessRoot, 'patterns');
+const guidanceDir = resolve(harnessRoot, 'guidance');
+
 export default function effectEnforcer(pi: ExtensionAPI): void {
-	const runtime = ManagedRuntime.make(EffectHarnessLayer.layer);
+	const runtime = ManagedRuntime.make(
+		EffectHarnessLayer.forPi({ patternsDir, guidanceDir })
+	);
 	type RuntimeServices = ManagedRuntime.ManagedRuntime.Services<
 		typeof runtime
 	>;
