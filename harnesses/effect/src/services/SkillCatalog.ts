@@ -57,6 +57,9 @@ export namespace SkillCatalog {
 			commands: ReadonlyArray<unknown>,
 			cwd: string
 		) => Effect.Effect<void>;
+		readonly rebuildFromDirectory: (
+			skillsDir: string
+		) => Effect.Effect<void>;
 		readonly entries: Effect.Effect<ReadonlyArray<SkillIndexEntry.Value>>;
 		readonly normalizePath: (
 			value: string,
@@ -139,6 +142,51 @@ export namespace SkillCatalog {
 				yield* Ref.set(entries, sort(deduped, skillIndexEntryOrder));
 			});
 
+			const rebuildFromDirectory = Effect.fn(
+				'SkillCatalog.rebuildFromDirectory'
+			)(function*(skillsDir: string) {
+				const exists = yield* fileSystem.exists(skillsDir).pipe(
+					Effect.orElseSucceed(() => false)
+				);
+				if (!exists) {
+					yield* Ref.set(entries, []);
+					return;
+				}
+
+				const dirEntries = yield* fileSystem.readDirectory(skillsDir)
+					.pipe(
+						Effect.orElseSucceed(() => [] as ReadonlyArray<string>)
+					);
+
+				const resolvedEntries: Array<SkillIndexEntry.Value> = [];
+				for (const childName of dirEntries) {
+					if (!childName.startsWith('effect-')) {
+						continue;
+					}
+					const skillDir = path.join(skillsDir, childName);
+					const skillFilePath = path.join(skillDir, 'SKILL.md');
+					const fileExists = yield* fileSystem.exists(skillFilePath)
+						.pipe(
+							Effect.orElseSucceed(() => false)
+						);
+					if (!fileExists) {
+						continue;
+					}
+					resolvedEntries.push(
+						new SkillIndexEntry.Value({
+							name: childName,
+							skillFilePath,
+							skillDir
+						})
+					);
+				}
+
+				yield* Ref.set(
+					entries,
+					sort(resolvedEntries, skillIndexEntryOrder)
+				);
+			});
+
 			const matchPath = Effect.fn('SkillCatalog.matchPath')(function*(
 				absPath: string
 			) {
@@ -160,6 +208,7 @@ export namespace SkillCatalog {
 
 			return Service.of({
 				rebuild,
+				rebuildFromDirectory,
 				entries: Ref.get(entries),
 				normalizePath: normalize,
 				matchPath
