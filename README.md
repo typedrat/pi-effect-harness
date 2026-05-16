@@ -1,5 +1,16 @@
 ![pi-effect-harness](https://raw.githubusercontent.com/mpsuesser/pi-effect-harness/main/.github/assets/readme-header-4.jpg)
 
+## Hosts
+
+This workspace publishes two plugins from the same source:
+
+- **`pi-effect-harness`** — the original [Pi coding agent](https://pi.dev) extension. Documented in the rest of this README.
+- **`opencode-effect-harness`** — a sibling [OpenCode](https://opencode.ai) plugin that shares the same skills, patterns, guidance, and kernel. Documented separately in [`harnesses/opencode-effect/README.md`](harnesses/opencode-effect/README.md).
+
+The two adapters live side-by-side in `packages/harness-kit/src/kernel/adapters/{pi,opencode}/` and `harnesses/effect/src/hooks/{pi,opencode}/`. Skills, patterns, guidance, the kernel itself, and the three host-agnostic rules are shared.
+
+---
+
 ## Table of contents
 
 - [What it does](#what-it-does)
